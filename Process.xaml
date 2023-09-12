@@ -18,7 +18,7 @@
   <sap:VirtualizedContainerService.HintSize>1235,1125</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="39">
+    <scg:List x:TypeArguments="x:String" Capacity="78">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -58,6 +58,7 @@
       <x:String>UiPath.Platform.ResourceHandling</x:String>
       <x:String>System.Security</x:String>
       <x:String>UiPath.Mail.SMTP.Activities</x:String>
+      <x:String>System.Net</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -295,15 +296,9 @@
                             </Assign>
                             <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Step_1.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="434,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_11" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Step\Step_1.xaml">
                               <ui:InvokeWorkflowFile.Arguments>
-                                <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
-                                  <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
-                                </InArgument>
-                                <InArgument x:TypeArguments="x:String" x:Key="in_s_startDate">
-                                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="io_s_startDateTime" />
-                                </InArgument>
-                                <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_out_param">
-                                  <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_out_param" />
-                                </InArgument>
+                                <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+                                <InArgument x:TypeArguments="x:String" x:Key="in_s_startDate">[io_s_startDateTime]</InArgument>
+                                <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_out_param">[in_out_param]</InArgument>
                               </ui:InvokeWorkflowFile.Arguments>
                             </ui:InvokeWorkflowFile>
                           </Sequence>
@@ -798,7 +793,7 @@
                                 <OutArgument x:TypeArguments="x:String">[s_maileTxt]</OutArgument>
                               </ui:AssignOperation.To>
                               <ui:AssignOperation.Value>
-                                <InArgument x:TypeArguments="x:String">[in_Config("attr28").ToString.Replace("$startTime",io_s_startTime).Replace("$endTime",DateTime.Now.ToString("HH:mm:ss")).Replace("$spenTime",(Convert.ToDateTime(Datetime.Now.ToString("HH:mm:ss"))-Convert.ToDateTime(io_s_startTime)).ToString()).Replace("$coment1",in_out_param("i_sendCnt").ToString).Replace("$coment2","").Replace("$manager",in_Config("attr24").ToString).Replace("$Maile",in_Config("attr26").ToString).Replace("$Phone",in_Config("attr26").ToString)]</InArgument>
+                                <InArgument x:TypeArguments="x:String">[in_Config("attr28").ToString.Replace("$startTime",io_s_startTime).Replace("$endTime",DateTime.Now.ToString("HH:mm:ss")).Replace("$spenTime",(Convert.ToDateTime(Datetime.Now.ToString("HH:mm:ss"))-Convert.ToDateTime(io_s_startTime)).ToString()).Replace("$coment1","["+System.Net.Dns.GetHostName+"]전송수량").Replace("$coment2",in_out_param("i_sendCnt").ToString).Replace("$manager",in_Config("attr24").ToString).Replace("$Maile",in_Config("attr26").ToString).Replace("$Phone",in_Config("attr26").ToString)]</InArgument>
                               </ui:AssignOperation.Value>
                             </ui:AssignOperation>
                           </scg:List>
