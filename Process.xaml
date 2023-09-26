@@ -243,7 +243,7 @@
                         <av:PointCollection x:Key="ConnectorLocation">209.441666666667,535.02 300,535.02 300,438.5</av:PointCollection>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <Flowchart DisplayName="MainProcess" sap:VirtualizedContainerService.HintSize="1256,906" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+                    <Flowchart DisplayName="MainProcess" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="Flowchart_1">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -412,7 +412,7 @@
                         <av:Size x:Key="ShapeSize">200,81</av:Size>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <Sequence DisplayName="결과메일 발송" sap:VirtualizedContainerService.HintSize="200,81" sap2010:WorkflowViewState.IdRef="Sequence_46">
+                    <Sequence DisplayName="결과메일 발송" sap:VirtualizedContainerService.HintSize="493,2081" sap2010:WorkflowViewState.IdRef="Sequence_46">
                       <Sequence.Variables>
                         <Variable x:TypeArguments="x:String" Name="s_maileTo" />
                         <Variable x:TypeArguments="x:String" Name="s_maileCc" />
