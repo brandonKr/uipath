@@ -91,6 +91,7 @@
       <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
       <AssemblyReference>WindowsBase</AssemblyReference>
       <AssemblyReference>Microsoft.Office.Interop.Word</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <Flowchart sap2010:Annotation.AnnotationText="주문서수집(자동)&#xA;" DisplayName="Step_1" sap:VirtualizedContainerService.HintSize="1014,1103" sap2010:WorkflowViewState.IdRef="Flowchart_1">
@@ -130,7 +131,7 @@
           <av:PointCollection x:Key="ConnectorLocation">360,258.5 360,310.5</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Sequence DisplayName="메뉴이동" sap:VirtualizedContainerService.HintSize="200,81" sap2010:WorkflowViewState.IdRef="Sequence_28">
+      <Sequence DisplayName="메뉴이동" sap:VirtualizedContainerService.HintSize="804,4812" sap2010:WorkflowViewState.IdRef="Sequence_28">
         <Sequence.Variables>
           <Variable x:TypeArguments="s:DateTime" Name="d_nowDate" />
           <Variable x:TypeArguments="ui:Browser" Name="br_sbHome" />
@@ -205,7 +206,7 @@
                                 </ui:Target>
                               </ui:SendHotkey.Target>
                             </ui:SendHotkey>
-                            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'BUTTON'" sap:VirtualizedContainerService.HintSize="388,107" sap2010:WorkflowViewState.IdRef="Click_112" KeyModifiers="None" MouseButton="BTN_LEFT">
+                            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'BUTTON'" sap:VirtualizedContainerService.HintSize="388,107" sap2010:WorkflowViewState.IdRef="Click_112" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
                               <ui:Click.CursorPosition>
                                 <ui:CursorPosition Position="Center">
                                   <ui:CursorPosition.OffsetX>
@@ -518,14 +519,17 @@
             </FlowStep>
           </FlowDecision.True>
           <FlowDecision.False>
-            <FlowDecision x:Name="__ReferenceID1" Condition="[System.Net.Dns.GetHostName.Equals(&quot;RPA002&quot;)]" DisplayName="실행서버 분기처리" sap:VirtualizedContainerService.HintSize="106,87" sap2010:WorkflowViewState.IdRef="FlowDecision_6">
+            <FlowDecision x:Name="__ReferenceID1" DisplayName="실행서버 분기처리" sap:VirtualizedContainerService.HintSize="106,87" sap2010:WorkflowViewState.IdRef="FlowDecision_6">
+              <FlowDecision.Condition>
+                <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="System.Net.Dns.GetHostName.Equals(&quot;RPA002&quot;)" />
+              </FlowDecision.Condition>
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   <av:Point x:Key="ShapeLocation">453,420.5</av:Point>
                   <av:Size x:Key="ShapeSize">106,87</av:Size>
                   <av:PointCollection x:Key="TrueConnector">453,464 403,464</av:PointCollection>
-                  <av:PointCollection x:Key="FalseConnector">559,464 584,464</av:PointCollection>
+                  <av:PointCollection x:Key="FalseConnector">559,464 609,464</av:PointCollection>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <FlowDecision.True>
@@ -534,7 +538,7 @@
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <av:Point x:Key="ShapeLocation">203,422.5</av:Point>
                       <av:Size x:Key="ShapeSize">200,81</av:Size>
-                      <av:PointCollection x:Key="ConnectorLocation">303,503.5 303,555.5</av:PointCollection>
+                      <av:PointCollection x:Key="ConnectorLocation">303,503.5 303,533.5 510,533.5 510,629.5</av:PointCollection>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                   <Sequence DisplayName="검색조건 설정CHROME" sap:VirtualizedContainerService.HintSize="200,81" sap2010:WorkflowViewState.IdRef="Sequence_80">
@@ -863,15 +867,15 @@
                     </ui:CommentOut>
                   </Sequence>
                   <FlowStep.Next>
-                    <FlowStep x:Name="__ReferenceID4">
+                    <FlowStep x:Name="__ReferenceID2">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <av:Point x:Key="ShapeLocation">203,555.5</av:Point>
+                          <av:Point x:Key="ShapeLocation">410,629.5</av:Point>
                           <av:Size x:Key="ShapeSize">200,81</av:Size>
-                          <av:PointCollection x:Key="ConnectorLocation">303,636.5 303,666.5 500,666.5 500,802.5</av:PointCollection>
+                          <av:PointCollection x:Key="ConnectorLocation">510,710.5 510,800.5</av:PointCollection>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <Sequence DisplayName="제외몰 설정-CHROME" sap:VirtualizedContainerService.HintSize="200,81" sap2010:WorkflowViewState.IdRef="Sequence_144">
+                      <Sequence DisplayName="제외몰 설정-CHROME" sap:VirtualizedContainerService.HintSize="200,81" sap2010:WorkflowViewState.IdRef="Sequence_263">
                         <Sequence.Variables>
                           <Variable x:TypeArguments="scg:IEnumerable(ui:UiElement)" Name="exceiptMall" />
                           <Variable x:TypeArguments="x:String" Name="exptMallList" />
@@ -881,19 +885,19 @@
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser 'chrome.exe 쇼핑몰옵션송신'" sap:VirtualizedContainerService.HintSize="628,747" sap2010:WorkflowViewState.IdRef="BrowserScope_37" InformativeScreenshot="43cae9b6e8f6adf5b002a91cae7c9f3c" Selector="&lt;html app='chrome.exe' title='* - 사방넷 리테일즈' /&gt;">
+                        <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser 'chrome.exe 쇼핑몰옵션송신'" sap:VirtualizedContainerService.HintSize="680,1132" sap2010:WorkflowViewState.IdRef="BrowserScope_60" InformativeScreenshot="43cae9b6e8f6adf5b002a91cae7c9f3c" Selector="&lt;html app='chrome.exe' title='* - 사방넷 리테일즈' /&gt;">
                           <ui:BrowserScope.Body>
                             <ActivityAction x:TypeArguments="x:Object">
                               <ActivityAction.Argument>
                                 <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
                               </ActivityAction.Argument>
-                              <Sequence DisplayName="실행" sap:VirtualizedContainerService.HintSize="548,600" sap2010:WorkflowViewState.IdRef="Sequence_145">
+                              <Sequence DisplayName="실행" sap:VirtualizedContainerService.HintSize="646,985" sap2010:WorkflowViewState.IdRef="Sequence_268">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
-                                <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'I'" sap:VirtualizedContainerService.HintSize="486,107" sap2010:WorkflowViewState.IdRef="Click_64" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+                                <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'I'" sap:VirtualizedContainerService.HintSize="584,107" sap2010:WorkflowViewState.IdRef="Click_120" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
                                   <ui:Click.CursorPosition>
                                     <ui:CursorPosition Position="Center">
                                       <ui:CursorPosition.OffsetX>
@@ -915,31 +919,21 @@
                                     </ui:Target>
                                   </ui:Click.Target>
                                 </ui:Click>
-                                <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="486,342" sap2010:WorkflowViewState.IdRef="ForEach`1_10" Values="[in_Config(&quot;attr07&quot;).ToString().Split({&quot;/&quot;},StringSplitOptions.RemoveEmptyEntries)]">
+                                <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="584,727" sap2010:WorkflowViewState.IdRef="ForEach`1_14" Values="[in_Config(&quot;attr07&quot;).ToString().Split({&quot;/&quot;},StringSplitOptions.RemoveEmptyEntries)]">
                                   <ui:ForEach.Body>
-                                    <ActivityAction x:TypeArguments="x:Object">
+                                    <ActivityAction x:TypeArguments="x:String">
                                       <ActivityAction.Argument>
-                                        <DelegateInArgument x:TypeArguments="x:Object" Name="mallName" />
+                                        <DelegateInArgument x:TypeArguments="x:String" Name="mallName" />
                                       </ActivityAction.Argument>
-                                      <Sequence DisplayName="본문" sap:VirtualizedContainerService.HintSize="450,218" sap2010:WorkflowViewState.IdRef="Sequence_146">
+                                      <Sequence DisplayName="본문" sap:VirtualizedContainerService.HintSize="548,603" sap2010:WorkflowViewState.IdRef="Sequence_267">
                                         <sap:WorkflowViewStateService.ViewState>
                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                           </scg:Dictionary>
                                         </sap:WorkflowViewStateService.ViewState>
-                                        <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'LI'" sap:VirtualizedContainerService.HintSize="388,107" sap2010:WorkflowViewState.IdRef="Click_132" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
-                                          <ui:Click.CursorPosition>
-                                            <ui:CursorPosition Position="Center">
-                                              <ui:CursorPosition.OffsetX>
-                                                <InArgument x:TypeArguments="x:Int32" />
-                                              </ui:CursorPosition.OffsetX>
-                                              <ui:CursorPosition.OffsetY>
-                                                <InArgument x:TypeArguments="x:Int32" />
-                                              </ui:CursorPosition.OffsetY>
-                                            </ui:CursorPosition>
-                                          </ui:Click.CursorPosition>
-                                          <ui:Click.Target>
-                                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="a1430129-f757-4011-8ab8-5c45ead538d3" InformativeScreenshot="af1640504688d0c842e56abca6381992" Selector="[string.Format(&quot;&lt;webctrl parentid='app' tag='DIV' class='ShmaSelectBox' parentclass='el-col el-col-6' /&gt;&lt;webctrl parentid='app' tag='LI' innertext='{0}' /&gt;&quot;, mallName)]">
+                                        <ui:InjectJsScript ScriptOutput="{x:Null}" DisplayName="Inject Js Script 'UL'" sap:VirtualizedContainerService.HintSize="486,155" sap2010:WorkflowViewState.IdRef="InjectJsScript_1" InputParameter="[mallName]" ScriptCode="[&quot;function(){&quot;+&#xA;&quot;&#x9;var mallList = document.querySelectorAll('#app &gt; div &gt; div.main-container.hasTagsView &gt; section &gt; div &gt; div.sb-border-line.el-row &gt; div:nth-child(4) &gt; div.el-col.el-col-6 &gt; div &gt; div &gt; div.el-select-dropdown.el-popper.is-multiple &gt; div &gt; div.el-select-dropdown__wrap.el-scrollbar__wrap &gt; ul &gt; li');&quot;+&#xA;&quot;&#x9;mallList.forEach(function(mall){&quot;+&#xA;&quot;   &#x9;if(mall.children[0].innerText == '&quot;+mallName+&quot;'){&quot;+&#xA;&quot;&#x9;       mall.click();&quot;+&#xA;&quot;&#x9;}});&quot;+&#xA;&quot;}&quot;]">
+                                          <ui:InjectJsScript.Target>
+                                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="dfcd516d-d0c2-435f-99b7-e7902d3f3448" InformativeScreenshot="a4ea2f7ebb3af88febeaae4fd23c939f" Selector="&lt;webctrl css-selector='body' tag='BODY' /&gt;">
                                               <ui:Target.TimeoutMS>
                                                 <InArgument x:TypeArguments="x:Int32" />
                                               </ui:Target.TimeoutMS>
@@ -947,8 +941,47 @@
                                                 <InArgument x:TypeArguments="ui:WaitForReady" />
                                               </ui:Target.WaitForReady>
                                             </ui:Target>
-                                          </ui:Click.Target>
-                                        </ui:Click>
+                                          </ui:InjectJsScript.Target>
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                        </ui:InjectJsScript>
+                                        <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="486,297" sap2010:WorkflowViewState.IdRef="CommentOut_59">
+                                          <ui:CommentOut.Body>
+                                            <Sequence DisplayName="무시된 액티비티" sap:VirtualizedContainerService.HintSize="450,218" sap2010:WorkflowViewState.IdRef="Sequence_275">
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                              <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'LI'" sap:VirtualizedContainerService.HintSize="388,107" sap2010:WorkflowViewState.IdRef="Click_133" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+                                                <ui:Click.CursorPosition>
+                                                  <ui:CursorPosition Position="Center">
+                                                    <ui:CursorPosition.OffsetX>
+                                                      <InArgument x:TypeArguments="x:Int32" />
+                                                    </ui:CursorPosition.OffsetX>
+                                                    <ui:CursorPosition.OffsetY>
+                                                      <InArgument x:TypeArguments="x:Int32" />
+                                                    </ui:CursorPosition.OffsetY>
+                                                  </ui:CursorPosition>
+                                                </ui:Click.CursorPosition>
+                                                <ui:Click.Target>
+                                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="a1430129-f757-4011-8ab8-5c45ead538d3" InformativeScreenshot="af1640504688d0c842e56abca6381992" Selector="[string.Format(&quot;&lt;webctrl parentid='app' tag='DIV' class='ShmaSelectBox' parentclass='el-col el-col-6' /&gt;&lt;webctrl parentid='app' tag='LI' innertext='{0}' /&gt;&quot;, mallName)]">
+                                                    <ui:Target.TimeoutMS>
+                                                      <InArgument x:TypeArguments="x:Int32" />
+                                                    </ui:Target.TimeoutMS>
+                                                    <ui:Target.WaitForReady>
+                                                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                                                    </ui:Target.WaitForReady>
+                                                  </ui:Target>
+                                                </ui:Click.Target>
+                                              </ui:Click>
+                                            </Sequence>
+                                          </ui:CommentOut.Body>
+                                        </ui:CommentOut>
                                       </Sequence>
                                     </ActivityAction>
                                   </ui:ForEach.Body>
@@ -957,19 +990,19 @@
                             </ActivityAction>
                           </ui:BrowserScope.Body>
                         </ui:BrowserScope>
-                        <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser 'chrome.exe 쇼핑몰옵션송신'" sap:VirtualizedContainerService.HintSize="628,1347" sap2010:WorkflowViewState.IdRef="BrowserScope_38" InformativeScreenshot="fea489df5b2a1359fbbe856465901504" Selector="&lt;html app='chrome.exe' title='쇼핑몰옵션송신 - 사방넷 리테일즈' /&gt;">
+                        <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser 'chrome.exe 쇼핑몰옵션송신'" sap:VirtualizedContainerService.HintSize="680,1346" sap2010:WorkflowViewState.IdRef="BrowserScope_61" InformativeScreenshot="fea489df5b2a1359fbbe856465901504" Selector="&lt;html app='chrome.exe' title='쇼핑몰옵션송신 - 사방넷 리테일즈' /&gt;">
                           <ui:BrowserScope.Body>
                             <ActivityAction x:TypeArguments="x:Object">
                               <ActivityAction.Argument>
                                 <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
                               </ActivityAction.Argument>
-                              <Sequence DisplayName="실행" sap:VirtualizedContainerService.HintSize="594,1200" sap2010:WorkflowViewState.IdRef="Sequence_147">
+                              <Sequence DisplayName="실행" sap:VirtualizedContainerService.HintSize="594,1199" sap2010:WorkflowViewState.IdRef="Sequence_270">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
-                                <Assign sap:VirtualizedContainerService.HintSize="532,82" sap2010:WorkflowViewState.IdRef="Assign_24">
+                                <Assign sap:VirtualizedContainerService.HintSize="532,81" sap2010:WorkflowViewState.IdRef="Assign_54">
                                   <Assign.To>
                                     <OutArgument x:TypeArguments="x:String">[exptMallList]</OutArgument>
                                   </Assign.To>
@@ -977,7 +1010,7 @@
                                     <InArgument x:TypeArguments="x:String">[in_Config("attr07").ToString]</InArgument>
                                   </Assign.Value>
                                 </Assign>
-                                <ui:FindChildren Children="[exceiptMall]" DisplayName="Find Children 'UL'" Filter="&lt;webctrl parentid='app' tag='LI' class='el-select-dropdown__item selected*' parentclass='el-scrollbar__view el-select-dropdown__list' /&gt;" sap:VirtualizedContainerService.HintSize="532,107" sap2010:WorkflowViewState.IdRef="FindChildren_14" Scope="FIND_DESCENDANTS">
+                                <ui:FindChildren Children="[exceiptMall]" DisplayName="Find Children 'UL'" Filter="&lt;webctrl parentid='app' tag='LI' class='el-select-dropdown__item selected*' parentclass='el-scrollbar__view el-select-dropdown__list' /&gt;" sap:VirtualizedContainerService.HintSize="532,107" sap2010:WorkflowViewState.IdRef="FindChildren_16" Scope="FIND_DESCENDANTS">
                                   <ui:FindChildren.Target>
                                     <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="9230072a-b4da-46c7-913b-22733c4cce38" InformativeScreenshot="a4e46afe590571fa36c0f869d2877e38" Selector="&lt;webctrl parentid='app' tag='DIV' class='ShmaSelectBox' parentclass='el-col el-col-6' /&gt;&lt;webctrl parentid='app' tag='UL' /&gt;">
                                       <ui:Target.TimeoutMS>
@@ -989,13 +1022,13 @@
                                     </ui:Target>
                                   </ui:FindChildren.Target>
                                 </ui:FindChildren>
-                                <ui:ForEach x:TypeArguments="ui:UiElement" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="532,576" sap2010:WorkflowViewState.IdRef="ForEach`1_11" Values="[exceiptMall]">
+                                <ui:ForEach x:TypeArguments="ui:UiElement" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="532,576" sap2010:WorkflowViewState.IdRef="ForEach`1_13" Values="[exceiptMall]">
                                   <ui:ForEach.Body>
                                     <ActivityAction x:TypeArguments="ui:UiElement">
                                       <ActivityAction.Argument>
                                         <DelegateInArgument x:TypeArguments="ui:UiElement" Name="selectMallList" />
                                       </ActivityAction.Argument>
-                                      <Sequence DisplayName="본문" sap:VirtualizedContainerService.HintSize="496,452" sap2010:WorkflowViewState.IdRef="Sequence_148">
+                                      <Sequence DisplayName="본문" sap:VirtualizedContainerService.HintSize="496,452" sap2010:WorkflowViewState.IdRef="Sequence_264">
                                         <Sequence.Variables>
                                           <Variable x:TypeArguments="x:String" Name="s_s" />
                                           <Variable x:TypeArguments="x:String" Name="selectMallName" />
@@ -1005,7 +1038,7 @@
                                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                           </scg:Dictionary>
                                         </sap:WorkflowViewStateService.ViewState>
-                                        <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text" sap:VirtualizedContainerService.HintSize="434,87" sap2010:WorkflowViewState.IdRef="GetValue_7">
+                                        <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text" sap:VirtualizedContainerService.HintSize="434,87" sap2010:WorkflowViewState.IdRef="GetValue_18">
                                           <ui:GetValue.Target>
                                             <ui:Target ClippingRegion="{x:Null}" Selector="{x:Null}" Element="[selectMallList]" Id="56c6b4e2-998f-4ed0-a074-4d7ab8fcec38">
                                               <ui:Target.TimeoutMS>
@@ -1020,8 +1053,8 @@
                                             <OutArgument x:TypeArguments="x:String">[selectMallName]</OutArgument>
                                           </ui:GetValue.Value>
                                         </ui:GetValue>
-                                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,92" sap2010:WorkflowViewState.IdRef="LogMessage_14" Level="Info" Message="[selectMallName]" />
-                                        <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_25">
+                                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,92" sap2010:WorkflowViewState.IdRef="LogMessage_28" Level="Info" Message="[selectMallName]" />
+                                        <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_55">
                                           <Assign.To>
                                             <OutArgument x:TypeArguments="x:String">[exptMallList]</OutArgument>
                                           </Assign.To>
@@ -1033,7 +1066,7 @@
                                     </ActivityAction>
                                   </ui:ForEach.Body>
                                 </ui:ForEach>
-                                <Assign sap:VirtualizedContainerService.HintSize="532,82" sap2010:WorkflowViewState.IdRef="Assign_26">
+                                <Assign sap:VirtualizedContainerService.HintSize="532,82" sap2010:WorkflowViewState.IdRef="Assign_56">
                                   <Assign.To>
                                     <OutArgument x:TypeArguments="x:String">[exptMallList]</OutArgument>
                                   </Assign.To>
@@ -1041,7 +1074,7 @@
                                     <InArgument x:TypeArguments="x:String">[exptMallList.Replace("/","")]</InArgument>
                                   </Assign.Value>
                                 </Assign>
-                                <Assign sap:VirtualizedContainerService.HintSize="532,82" sap2010:WorkflowViewState.IdRef="Assign_31">
+                                <Assign sap:VirtualizedContainerService.HintSize="532,82" sap2010:WorkflowViewState.IdRef="Assign_57">
                                   <Assign.To>
                                     <OutArgument x:TypeArguments="x:String">[exptMallList]</OutArgument>
                                   </Assign.To>
@@ -1053,7 +1086,7 @@
                             </ActivityAction>
                           </ui:BrowserScope.Body>
                         </ui:BrowserScope>
-                        <Assign sap:VirtualizedContainerService.HintSize="628,82" sap2010:WorkflowViewState.IdRef="Assign_27">
+                        <Assign sap:VirtualizedContainerService.HintSize="628,82" sap2010:WorkflowViewState.IdRef="Assign_58">
                           <Assign.To>
                             <OutArgument x:TypeArguments="x:Boolean">[b_exptMall]</OutArgument>
                           </Assign.To>
@@ -1063,23 +1096,23 @@
                         </Assign>
                       </Sequence>
                       <FlowStep.Next>
-                        <FlowDecision x:Name="__ReferenceID2" Condition="[b_exptMall]" DisplayName="제외몰 설정확인" sap:VirtualizedContainerService.HintSize="94,87" sap2010:WorkflowViewState.IdRef="FlowDecision_1">
+                        <FlowDecision x:Name="__ReferenceID4" Condition="[b_exptMall]" DisplayName="제외몰 설정확인" sap:VirtualizedContainerService.HintSize="94,87" sap2010:WorkflowViewState.IdRef="FlowDecision_1">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                              <av:Point x:Key="ShapeLocation">453,802.5</av:Point>
+                              <av:Point x:Key="ShapeLocation">463,800.5</av:Point>
                               <av:Size x:Key="ShapeSize">94,87</av:Size>
-                              <av:PointCollection x:Key="FalseConnector">547,846 597,846</av:PointCollection>
-                              <av:PointCollection x:Key="TrueConnector">453,846 403,846</av:PointCollection>
+                              <av:PointCollection x:Key="FalseConnector">557,844 607,844</av:PointCollection>
+                              <av:PointCollection x:Key="TrueConnector">463,844 413,844</av:PointCollection>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                           <FlowDecision.True>
                             <FlowStep x:Name="__ReferenceID6">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                  <av:Point x:Key="ShapeLocation">203,804.5</av:Point>
+                                  <av:Point x:Key="ShapeLocation">213,803.5</av:Point>
                                   <av:Size x:Key="ShapeSize">200,81</av:Size>
-                                  <av:PointCollection x:Key="ConnectorLocation">303,885.5 303,915.5 302.941666666667,915.5 302.941666666667,937.5</av:PointCollection>
+                                  <av:PointCollection x:Key="ConnectorLocation">313,884.5 313,934.5</av:PointCollection>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
                               <Sequence DisplayName="재고전송LOOP-CHROME" sap:VirtualizedContainerService.HintSize="200,81" sap2010:WorkflowViewState.IdRef="Sequence_221">
@@ -1106,7 +1139,7 @@
                                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                           </scg:Dictionary>
                                         </sap:WorkflowViewStateService.ViewState>
-                                        <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DelayMS="3000" DisplayName="Click 'BUTTON'" sap:VirtualizedContainerService.HintSize="712,107" sap2010:WorkflowViewState.IdRef="Click_107" KeyModifiers="None" MouseButton="BTN_LEFT">
+                                        <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DelayMS="3000" DisplayName="Click 'BUTTON'" sap:VirtualizedContainerService.HintSize="712,107" sap2010:WorkflowViewState.IdRef="Click_107" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
                                           <ui:Click.CursorPosition>
                                             <ui:CursorPosition Position="Center">
                                               <ui:CursorPosition.OffsetX>
@@ -1323,17 +1356,17 @@
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                      <av:Point x:Key="ShapeLocation">262.441666666667,937.5</av:Point>
+                                      <av:Point x:Key="ShapeLocation">272.5,934.5</av:Point>
                                       <av:Size x:Key="ShapeSize">81,87</av:Size>
-                                      <av:PointCollection x:Key="FalseConnector">343.441666666667,981 938.191128505989,981 938.191128505989,219 460,219</av:PointCollection>
-                                      <av:PointCollection x:Key="TrueConnector">262.441666666667,981 232.441666666667,981 232.441666666667,980 212.441666666667,980</av:PointCollection>
+                                      <av:PointCollection x:Key="FalseConnector">353.5,978 865.5,978 865.5,218 460,218</av:PointCollection>
+                                      <av:PointCollection x:Key="TrueConnector">272.5,978 222.5,978</av:PointCollection>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
                                   <FlowDecision.True>
                                     <FlowStep x:Name="__ReferenceID8">
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                          <av:Point x:Key="ShapeLocation">12.4416666666669,939.5</av:Point>
+                                          <av:Point x:Key="ShapeLocation">22.5,937.5</av:Point>
                                           <av:Size x:Key="ShapeSize">200,81</av:Size>
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
@@ -1491,9 +1524,9 @@
                             <FlowStep x:Name="__ReferenceID5">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                  <av:Point x:Key="ShapeLocation">597,804.5</av:Point>
+                                  <av:Point x:Key="ShapeLocation">607,803.5</av:Point>
                                   <av:Size x:Key="ShapeSize">200,81</av:Size>
-                                  <av:PointCollection x:Key="ConnectorLocation">797,846 827,846 827,390.5 506,390.5 506,420.5</av:PointCollection>
+                                  <av:PointCollection x:Key="ConnectorLocation">807,844 836,844 836,390.5 506,390.5 506,420.5</av:PointCollection>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
                               <Sequence DisplayName="제외몰 설정 초기화-CHROME" sap:VirtualizedContainerService.HintSize="200,81" sap2010:WorkflowViewState.IdRef="Sequence_149">
@@ -1532,12 +1565,12 @@
                 </FlowStep>
               </FlowDecision.True>
               <FlowDecision.False>
-                <FlowStep x:Name="__ReferenceID12">
+                <FlowStep x:Name="__ReferenceID11">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <av:Point x:Key="ShapeLocation">584,422.5</av:Point>
+                      <av:Point x:Key="ShapeLocation">609,423.5</av:Point>
                       <av:Size x:Key="ShapeSize">200,81</av:Size>
-                      <av:PointCollection x:Key="ConnectorLocation">684,503.5 684,555.5</av:PointCollection>
+                      <av:PointCollection x:Key="ConnectorLocation">709,504.5 709,534.5 510,534.5 510,629.5</av:PointCollection>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                   <Sequence DisplayName="검색조건 설정CHROME" sap:VirtualizedContainerService.HintSize="200,81" sap2010:WorkflowViewState.IdRef="Sequence_265">
@@ -1910,238 +1943,7 @@
                     </ui:CommentOut>
                   </Sequence>
                   <FlowStep.Next>
-                    <FlowStep x:Name="__ReferenceID11">
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <av:Point x:Key="ShapeLocation">584,555.5</av:Point>
-                          <av:Size x:Key="ShapeSize">200,81</av:Size>
-                          <av:PointCollection x:Key="ConnectorLocation">684,636.5 684,666.5 500,666.5 500,802.5</av:PointCollection>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                      <Sequence DisplayName="제외몰 설정-CHROME" sap:VirtualizedContainerService.HintSize="742,2752" sap2010:WorkflowViewState.IdRef="Sequence_263">
-                        <Sequence.Variables>
-                          <Variable x:TypeArguments="scg:IEnumerable(ui:UiElement)" Name="exceiptMall" />
-                          <Variable x:TypeArguments="x:String" Name="exptMallList" />
-                        </Sequence.Variables>
-                        <sap:WorkflowViewStateService.ViewState>
-                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                          </scg:Dictionary>
-                        </sap:WorkflowViewStateService.ViewState>
-                        <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser 'chrome.exe 쇼핑몰옵션송신'" sap:VirtualizedContainerService.HintSize="680,1132" sap2010:WorkflowViewState.IdRef="BrowserScope_60" InformativeScreenshot="43cae9b6e8f6adf5b002a91cae7c9f3c" Selector="&lt;html app='chrome.exe' title='* - 사방넷 리테일즈' /&gt;">
-                          <ui:BrowserScope.Body>
-                            <ActivityAction x:TypeArguments="x:Object">
-                              <ActivityAction.Argument>
-                                <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
-                              </ActivityAction.Argument>
-                              <Sequence DisplayName="실행" sap:VirtualizedContainerService.HintSize="646,985" sap2010:WorkflowViewState.IdRef="Sequence_268">
-                                <sap:WorkflowViewStateService.ViewState>
-                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                  </scg:Dictionary>
-                                </sap:WorkflowViewStateService.ViewState>
-                                <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'I'" sap:VirtualizedContainerService.HintSize="584,107" sap2010:WorkflowViewState.IdRef="Click_120" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
-                                  <ui:Click.CursorPosition>
-                                    <ui:CursorPosition Position="Center">
-                                      <ui:CursorPosition.OffsetX>
-                                        <InArgument x:TypeArguments="x:Int32" />
-                                      </ui:CursorPosition.OffsetX>
-                                      <ui:CursorPosition.OffsetY>
-                                        <InArgument x:TypeArguments="x:Int32" />
-                                      </ui:CursorPosition.OffsetY>
-                                    </ui:CursorPosition>
-                                  </ui:Click.CursorPosition>
-                                  <ui:Click.Target>
-                                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="e6f5a3a3-dd69-48d3-83c1-fd7fa3b9e2fa" InformativeScreenshot="ff110605bbc95f6a53de695f99e535d4" Selector="&lt;webctrl parentid='app' tag='DIV' class='ShmaSelectBox' parentclass='el-col el-col-6' /&gt;&lt;webctrl tag='I' class='el-select__caret el-input__icon el-icon-arrow-up' parentclass='el-input__suffix-inner' parentid='app' /&gt;">
-                                      <ui:Target.TimeoutMS>
-                                        <InArgument x:TypeArguments="x:Int32" />
-                                      </ui:Target.TimeoutMS>
-                                      <ui:Target.WaitForReady>
-                                        <InArgument x:TypeArguments="ui:WaitForReady" />
-                                      </ui:Target.WaitForReady>
-                                    </ui:Target>
-                                  </ui:Click.Target>
-                                </ui:Click>
-                                <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="584,727" sap2010:WorkflowViewState.IdRef="ForEach`1_14" Values="[in_Config(&quot;attr07&quot;).ToString().Split({&quot;/&quot;},StringSplitOptions.RemoveEmptyEntries)]">
-                                  <ui:ForEach.Body>
-                                    <ActivityAction x:TypeArguments="x:String">
-                                      <ActivityAction.Argument>
-                                        <DelegateInArgument x:TypeArguments="x:String" Name="mallName" />
-                                      </ActivityAction.Argument>
-                                      <Sequence DisplayName="본문" sap:VirtualizedContainerService.HintSize="548,603" sap2010:WorkflowViewState.IdRef="Sequence_267">
-                                        <sap:WorkflowViewStateService.ViewState>
-                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                          </scg:Dictionary>
-                                        </sap:WorkflowViewStateService.ViewState>
-                                        <ui:InjectJsScript ScriptOutput="{x:Null}" DisplayName="Inject Js Script 'UL'" sap:VirtualizedContainerService.HintSize="486,155" sap2010:WorkflowViewState.IdRef="InjectJsScript_1" InputParameter="[mallName]" ScriptCode="[&quot;function(){&quot;+&#xD;&#xA;&quot;&#x9;var mallList = document.querySelectorAll('#app &gt; div &gt; div.main-container.hasTagsView &gt; section &gt; div &gt; div.sb-border-line.el-row &gt; div:nth-child(4) &gt; div.el-col.el-col-6 &gt; div &gt; div &gt; div.el-select-dropdown.el-popper.is-multiple &gt; div &gt; div.el-select-dropdown__wrap.el-scrollbar__wrap &gt; ul &gt; li');&quot;+&#xD;&#xA;&quot;&#x9;mallList.forEach(function(mall){&quot;+&#xD;&#xA;&quot;   &#x9;if(mall.children[0].innerText == '&quot;+mallName+&quot;'){&quot;+&#xD;&#xA;&quot;&#x9;       mall.click();&quot;+&#xD;&#xA;&quot;&#x9;}});&quot;+&#xD;&#xA;&quot;}&quot;]">
-                                          <ui:InjectJsScript.Target>
-                                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="dfcd516d-d0c2-435f-99b7-e7902d3f3448" InformativeScreenshot="a4ea2f7ebb3af88febeaae4fd23c939f" Selector="&lt;webctrl css-selector='body' tag='BODY' /&gt;">
-                                              <ui:Target.TimeoutMS>
-                                                <InArgument x:TypeArguments="x:Int32" />
-                                              </ui:Target.TimeoutMS>
-                                              <ui:Target.WaitForReady>
-                                                <InArgument x:TypeArguments="ui:WaitForReady" />
-                                              </ui:Target.WaitForReady>
-                                            </ui:Target>
-                                          </ui:InjectJsScript.Target>
-                                          <sap:WorkflowViewStateService.ViewState>
-                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                            </scg:Dictionary>
-                                          </sap:WorkflowViewStateService.ViewState>
-                                        </ui:InjectJsScript>
-                                        <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="486,297" sap2010:WorkflowViewState.IdRef="CommentOut_59">
-                                          <ui:CommentOut.Body>
-                                            <Sequence DisplayName="무시된 액티비티" sap:VirtualizedContainerService.HintSize="450,218" sap2010:WorkflowViewState.IdRef="Sequence_275">
-                                              <sap:WorkflowViewStateService.ViewState>
-                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                                </scg:Dictionary>
-                                              </sap:WorkflowViewStateService.ViewState>
-                                              <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'LI'" sap:VirtualizedContainerService.HintSize="388,107" sap2010:WorkflowViewState.IdRef="Click_133" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
-                                                <ui:Click.CursorPosition>
-                                                  <ui:CursorPosition Position="Center">
-                                                    <ui:CursorPosition.OffsetX>
-                                                      <InArgument x:TypeArguments="x:Int32" />
-                                                    </ui:CursorPosition.OffsetX>
-                                                    <ui:CursorPosition.OffsetY>
-                                                      <InArgument x:TypeArguments="x:Int32" />
-                                                    </ui:CursorPosition.OffsetY>
-                                                  </ui:CursorPosition>
-                                                </ui:Click.CursorPosition>
-                                                <ui:Click.Target>
-                                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="a1430129-f757-4011-8ab8-5c45ead538d3" InformativeScreenshot="af1640504688d0c842e56abca6381992" Selector="[string.Format(&quot;&lt;webctrl parentid='app' tag='DIV' class='ShmaSelectBox' parentclass='el-col el-col-6' /&gt;&lt;webctrl parentid='app' tag='LI' innertext='{0}' /&gt;&quot;, mallName)]">
-                                                    <ui:Target.TimeoutMS>
-                                                      <InArgument x:TypeArguments="x:Int32" />
-                                                    </ui:Target.TimeoutMS>
-                                                    <ui:Target.WaitForReady>
-                                                      <InArgument x:TypeArguments="ui:WaitForReady" />
-                                                    </ui:Target.WaitForReady>
-                                                  </ui:Target>
-                                                </ui:Click.Target>
-                                              </ui:Click>
-                                            </Sequence>
-                                          </ui:CommentOut.Body>
-                                        </ui:CommentOut>
-                                      </Sequence>
-                                    </ActivityAction>
-                                  </ui:ForEach.Body>
-                                </ui:ForEach>
-                              </Sequence>
-                            </ActivityAction>
-                          </ui:BrowserScope.Body>
-                        </ui:BrowserScope>
-                        <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser 'chrome.exe 쇼핑몰옵션송신'" sap:VirtualizedContainerService.HintSize="680,1347" sap2010:WorkflowViewState.IdRef="BrowserScope_61" InformativeScreenshot="fea489df5b2a1359fbbe856465901504" Selector="&lt;html app='chrome.exe' title='쇼핑몰옵션송신 - 사방넷 리테일즈' /&gt;">
-                          <ui:BrowserScope.Body>
-                            <ActivityAction x:TypeArguments="x:Object">
-                              <ActivityAction.Argument>
-                                <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
-                              </ActivityAction.Argument>
-                              <Sequence DisplayName="실행" sap:VirtualizedContainerService.HintSize="594,1200" sap2010:WorkflowViewState.IdRef="Sequence_270">
-                                <sap:WorkflowViewStateService.ViewState>
-                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                  </scg:Dictionary>
-                                </sap:WorkflowViewStateService.ViewState>
-                                <Assign sap:VirtualizedContainerService.HintSize="532,82" sap2010:WorkflowViewState.IdRef="Assign_54">
-                                  <Assign.To>
-                                    <OutArgument x:TypeArguments="x:String">[exptMallList]</OutArgument>
-                                  </Assign.To>
-                                  <Assign.Value>
-                                    <InArgument x:TypeArguments="x:String">[in_Config("attr07").ToString]</InArgument>
-                                  </Assign.Value>
-                                </Assign>
-                                <ui:FindChildren Children="[exceiptMall]" DisplayName="Find Children 'UL'" Filter="&lt;webctrl parentid='app' tag='LI' class='el-select-dropdown__item selected*' parentclass='el-scrollbar__view el-select-dropdown__list' /&gt;" sap:VirtualizedContainerService.HintSize="532,107" sap2010:WorkflowViewState.IdRef="FindChildren_16" Scope="FIND_DESCENDANTS">
-                                  <ui:FindChildren.Target>
-                                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="9230072a-b4da-46c7-913b-22733c4cce38" InformativeScreenshot="a4e46afe590571fa36c0f869d2877e38" Selector="&lt;webctrl parentid='app' tag='DIV' class='ShmaSelectBox' parentclass='el-col el-col-6' /&gt;&lt;webctrl parentid='app' tag='UL' /&gt;">
-                                      <ui:Target.TimeoutMS>
-                                        <InArgument x:TypeArguments="x:Int32" />
-                                      </ui:Target.TimeoutMS>
-                                      <ui:Target.WaitForReady>
-                                        <InArgument x:TypeArguments="ui:WaitForReady" />
-                                      </ui:Target.WaitForReady>
-                                    </ui:Target>
-                                  </ui:FindChildren.Target>
-                                </ui:FindChildren>
-                                <ui:ForEach x:TypeArguments="ui:UiElement" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="532,576" sap2010:WorkflowViewState.IdRef="ForEach`1_13" Values="[exceiptMall]">
-                                  <ui:ForEach.Body>
-                                    <ActivityAction x:TypeArguments="ui:UiElement">
-                                      <ActivityAction.Argument>
-                                        <DelegateInArgument x:TypeArguments="ui:UiElement" Name="selectMallList" />
-                                      </ActivityAction.Argument>
-                                      <Sequence DisplayName="본문" sap:VirtualizedContainerService.HintSize="496,452" sap2010:WorkflowViewState.IdRef="Sequence_264">
-                                        <Sequence.Variables>
-                                          <Variable x:TypeArguments="x:String" Name="s_s" />
-                                          <Variable x:TypeArguments="x:String" Name="selectMallName" />
-                                        </Sequence.Variables>
-                                        <sap:WorkflowViewStateService.ViewState>
-                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                          </scg:Dictionary>
-                                        </sap:WorkflowViewStateService.ViewState>
-                                        <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text" sap:VirtualizedContainerService.HintSize="434,87" sap2010:WorkflowViewState.IdRef="GetValue_18">
-                                          <ui:GetValue.Target>
-                                            <ui:Target ClippingRegion="{x:Null}" Selector="{x:Null}" Element="[selectMallList]" Id="56c6b4e2-998f-4ed0-a074-4d7ab8fcec38">
-                                              <ui:Target.TimeoutMS>
-                                                <InArgument x:TypeArguments="x:Int32" />
-                                              </ui:Target.TimeoutMS>
-                                              <ui:Target.WaitForReady>
-                                                <InArgument x:TypeArguments="ui:WaitForReady" />
-                                              </ui:Target.WaitForReady>
-                                            </ui:Target>
-                                          </ui:GetValue.Target>
-                                          <ui:GetValue.Value>
-                                            <OutArgument x:TypeArguments="x:String">[selectMallName]</OutArgument>
-                                          </ui:GetValue.Value>
-                                        </ui:GetValue>
-                                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,92" sap2010:WorkflowViewState.IdRef="LogMessage_28" Level="Info" Message="[selectMallName]" />
-                                        <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_55">
-                                          <Assign.To>
-                                            <OutArgument x:TypeArguments="x:String">[exptMallList]</OutArgument>
-                                          </Assign.To>
-                                          <Assign.Value>
-                                            <InArgument x:TypeArguments="x:String">[exptMallList.Replace(selectMallName,"")]</InArgument>
-                                          </Assign.Value>
-                                        </Assign>
-                                      </Sequence>
-                                    </ActivityAction>
-                                  </ui:ForEach.Body>
-                                </ui:ForEach>
-                                <Assign sap:VirtualizedContainerService.HintSize="532,82" sap2010:WorkflowViewState.IdRef="Assign_56">
-                                  <Assign.To>
-                                    <OutArgument x:TypeArguments="x:String">[exptMallList]</OutArgument>
-                                  </Assign.To>
-                                  <Assign.Value>
-                                    <InArgument x:TypeArguments="x:String">[exptMallList.Replace("/","")]</InArgument>
-                                  </Assign.Value>
-                                </Assign>
-                                <Assign sap:VirtualizedContainerService.HintSize="532,82" sap2010:WorkflowViewState.IdRef="Assign_57">
-                                  <Assign.To>
-                                    <OutArgument x:TypeArguments="x:String">[exptMallList]</OutArgument>
-                                  </Assign.To>
-                                  <Assign.Value>
-                                    <InArgument x:TypeArguments="x:String">[exptMallList.Replace(" ","")]</InArgument>
-                                  </Assign.Value>
-                                </Assign>
-                              </Sequence>
-                            </ActivityAction>
-                          </ui:BrowserScope.Body>
-                        </ui:BrowserScope>
-                        <Assign sap:VirtualizedContainerService.HintSize="628,82" sap2010:WorkflowViewState.IdRef="Assign_58">
-                          <Assign.To>
-                            <OutArgument x:TypeArguments="x:Boolean">[b_exptMall]</OutArgument>
-                          </Assign.To>
-                          <Assign.Value>
-                            <InArgument x:TypeArguments="x:Boolean">[exptMallList.Length &lt; 1 And exptMallList.Equals("")]</InArgument>
-                          </Assign.Value>
-                        </Assign>
-                      </Sequence>
-                      <FlowStep.Next>
-                        <x:Reference>__ReferenceID2</x:Reference>
-                      </FlowStep.Next>
-                    </FlowStep>
+                    <x:Reference>__ReferenceID2</x:Reference>
                   </FlowStep.Next>
                 </FlowStep>
               </FlowDecision.False>
@@ -2151,8 +1953,206 @@
       </FlowStep.Next>
     </FlowStep>
     <x:Reference>__ReferenceID3</x:Reference>
+    <FlowStep>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <av:Point x:Key="ShapeLocation">0,559.5</av:Point>
+          <av:Size x:Key="ShapeSize">200,81</av:Size>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <Sequence DisplayName="제외몰 설정-CHROME" sap:VirtualizedContainerService.HintSize="200,81" sap2010:WorkflowViewState.IdRef="Sequence_144">
+        <Sequence.Variables>
+          <Variable x:TypeArguments="scg:IEnumerable(ui:UiElement)" Name="exceiptMall" />
+          <Variable x:TypeArguments="x:String" Name="exptMallList" />
+        </Sequence.Variables>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser 'chrome.exe 쇼핑몰옵션송신'" sap:VirtualizedContainerService.HintSize="628,747" sap2010:WorkflowViewState.IdRef="BrowserScope_37" InformativeScreenshot="43cae9b6e8f6adf5b002a91cae7c9f3c" Selector="&lt;html app='chrome.exe' title='* - 사방넷 리테일즈' /&gt;">
+          <ui:BrowserScope.Body>
+            <ActivityAction x:TypeArguments="x:Object">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+              </ActivityAction.Argument>
+              <Sequence DisplayName="실행" sap:VirtualizedContainerService.HintSize="548,600" sap2010:WorkflowViewState.IdRef="Sequence_145">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'I'" sap:VirtualizedContainerService.HintSize="486,107" sap2010:WorkflowViewState.IdRef="Click_64" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+                  <ui:Click.CursorPosition>
+                    <ui:CursorPosition Position="Center">
+                      <ui:CursorPosition.OffsetX>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:CursorPosition.OffsetX>
+                      <ui:CursorPosition.OffsetY>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:CursorPosition.OffsetY>
+                    </ui:CursorPosition>
+                  </ui:Click.CursorPosition>
+                  <ui:Click.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="e6f5a3a3-dd69-48d3-83c1-fd7fa3b9e2fa" InformativeScreenshot="ff110605bbc95f6a53de695f99e535d4" Selector="&lt;webctrl parentid='app' tag='DIV' class='ShmaSelectBox' parentclass='el-col el-col-6' /&gt;&lt;webctrl tag='I' class='el-select__caret el-input__icon el-icon-arrow-up' parentclass='el-input__suffix-inner' parentid='app' /&gt;">
+                      <ui:Target.TimeoutMS>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:Target.TimeoutMS>
+                      <ui:Target.WaitForReady>
+                        <InArgument x:TypeArguments="ui:WaitForReady" />
+                      </ui:Target.WaitForReady>
+                    </ui:Target>
+                  </ui:Click.Target>
+                </ui:Click>
+                <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="486,342" sap2010:WorkflowViewState.IdRef="ForEach`1_10" Values="[in_Config(&quot;attr07&quot;).ToString().Split({&quot;/&quot;},StringSplitOptions.RemoveEmptyEntries)]">
+                  <ui:ForEach.Body>
+                    <ActivityAction x:TypeArguments="x:Object">
+                      <ActivityAction.Argument>
+                        <DelegateInArgument x:TypeArguments="x:Object" Name="mallName" />
+                      </ActivityAction.Argument>
+                      <Sequence DisplayName="본문" sap:VirtualizedContainerService.HintSize="450,218" sap2010:WorkflowViewState.IdRef="Sequence_146">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'LI'" sap:VirtualizedContainerService.HintSize="388,107" sap2010:WorkflowViewState.IdRef="Click_132" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+                          <ui:Click.CursorPosition>
+                            <ui:CursorPosition Position="Center">
+                              <ui:CursorPosition.OffsetX>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:CursorPosition.OffsetX>
+                              <ui:CursorPosition.OffsetY>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:CursorPosition.OffsetY>
+                            </ui:CursorPosition>
+                          </ui:Click.CursorPosition>
+                          <ui:Click.Target>
+                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="a1430129-f757-4011-8ab8-5c45ead538d3" InformativeScreenshot="af1640504688d0c842e56abca6381992" Selector="[string.Format(&quot;&lt;webctrl parentid='app' tag='DIV' class='ShmaSelectBox' parentclass='el-col el-col-6' /&gt;&lt;webctrl parentid='app' tag='LI' innertext='{0}' /&gt;&quot;, mallName)]">
+                              <ui:Target.TimeoutMS>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:Target.TimeoutMS>
+                              <ui:Target.WaitForReady>
+                                <InArgument x:TypeArguments="ui:WaitForReady" />
+                              </ui:Target.WaitForReady>
+                            </ui:Target>
+                          </ui:Click.Target>
+                        </ui:Click>
+                      </Sequence>
+                    </ActivityAction>
+                  </ui:ForEach.Body>
+                </ui:ForEach>
+              </Sequence>
+            </ActivityAction>
+          </ui:BrowserScope.Body>
+        </ui:BrowserScope>
+        <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser 'chrome.exe 쇼핑몰옵션송신'" sap:VirtualizedContainerService.HintSize="628,1347" sap2010:WorkflowViewState.IdRef="BrowserScope_38" InformativeScreenshot="fea489df5b2a1359fbbe856465901504" Selector="&lt;html app='chrome.exe' title='쇼핑몰옵션송신 - 사방넷 리테일즈' /&gt;">
+          <ui:BrowserScope.Body>
+            <ActivityAction x:TypeArguments="x:Object">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+              </ActivityAction.Argument>
+              <Sequence DisplayName="실행" sap:VirtualizedContainerService.HintSize="594,1200" sap2010:WorkflowViewState.IdRef="Sequence_147">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <Assign sap:VirtualizedContainerService.HintSize="532,82" sap2010:WorkflowViewState.IdRef="Assign_24">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[exptMallList]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">[in_Config("attr07").ToString]</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <ui:FindChildren Children="[exceiptMall]" DisplayName="Find Children 'UL'" Filter="&lt;webctrl parentid='app' tag='LI' class='el-select-dropdown__item selected*' parentclass='el-scrollbar__view el-select-dropdown__list' /&gt;" sap:VirtualizedContainerService.HintSize="532,107" sap2010:WorkflowViewState.IdRef="FindChildren_14" Scope="FIND_DESCENDANTS">
+                  <ui:FindChildren.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="9230072a-b4da-46c7-913b-22733c4cce38" InformativeScreenshot="a4e46afe590571fa36c0f869d2877e38" Selector="&lt;webctrl parentid='app' tag='DIV' class='ShmaSelectBox' parentclass='el-col el-col-6' /&gt;&lt;webctrl parentid='app' tag='UL' /&gt;">
+                      <ui:Target.TimeoutMS>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:Target.TimeoutMS>
+                      <ui:Target.WaitForReady>
+                        <InArgument x:TypeArguments="ui:WaitForReady" />
+                      </ui:Target.WaitForReady>
+                    </ui:Target>
+                  </ui:FindChildren.Target>
+                </ui:FindChildren>
+                <ui:ForEach x:TypeArguments="ui:UiElement" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="532,576" sap2010:WorkflowViewState.IdRef="ForEach`1_11" Values="[exceiptMall]">
+                  <ui:ForEach.Body>
+                    <ActivityAction x:TypeArguments="ui:UiElement">
+                      <ActivityAction.Argument>
+                        <DelegateInArgument x:TypeArguments="ui:UiElement" Name="selectMallList" />
+                      </ActivityAction.Argument>
+                      <Sequence DisplayName="본문" sap:VirtualizedContainerService.HintSize="496,452" sap2010:WorkflowViewState.IdRef="Sequence_148">
+                        <Sequence.Variables>
+                          <Variable x:TypeArguments="x:String" Name="s_s" />
+                          <Variable x:TypeArguments="x:String" Name="selectMallName" />
+                        </Sequence.Variables>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text" sap:VirtualizedContainerService.HintSize="434,87" sap2010:WorkflowViewState.IdRef="GetValue_7">
+                          <ui:GetValue.Target>
+                            <ui:Target ClippingRegion="{x:Null}" Selector="{x:Null}" Element="[selectMallList]" Id="56c6b4e2-998f-4ed0-a074-4d7ab8fcec38">
+                              <ui:Target.TimeoutMS>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:Target.TimeoutMS>
+                              <ui:Target.WaitForReady>
+                                <InArgument x:TypeArguments="ui:WaitForReady" />
+                              </ui:Target.WaitForReady>
+                            </ui:Target>
+                          </ui:GetValue.Target>
+                          <ui:GetValue.Value>
+                            <OutArgument x:TypeArguments="x:String">[selectMallName]</OutArgument>
+                          </ui:GetValue.Value>
+                        </ui:GetValue>
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,92" sap2010:WorkflowViewState.IdRef="LogMessage_14" Level="Info" Message="[selectMallName]" />
+                        <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_25">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:String">[exptMallList]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:String">[exptMallList.Replace(selectMallName,"")]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                      </Sequence>
+                    </ActivityAction>
+                  </ui:ForEach.Body>
+                </ui:ForEach>
+                <Assign sap:VirtualizedContainerService.HintSize="532,82" sap2010:WorkflowViewState.IdRef="Assign_26">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[exptMallList]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">[exptMallList.Replace("/","")]</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <Assign sap:VirtualizedContainerService.HintSize="532,82" sap2010:WorkflowViewState.IdRef="Assign_31">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[exptMallList]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">[exptMallList.Replace(" ","")]</InArgument>
+                  </Assign.Value>
+                </Assign>
+              </Sequence>
+            </ActivityAction>
+          </ui:BrowserScope.Body>
+        </ui:BrowserScope>
+        <Assign sap:VirtualizedContainerService.HintSize="628,82" sap2010:WorkflowViewState.IdRef="Assign_27">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:Boolean">[b_exptMall]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:Boolean">[exptMallList.Length &lt; 1 And exptMallList.Equals("")]</InArgument>
+          </Assign.Value>
+        </Assign>
+      </Sequence>
+    </FlowStep>
     <x:Reference>__ReferenceID4</x:Reference>
-    <x:Reference>__ReferenceID2</x:Reference>
     <x:Reference>__ReferenceID5</x:Reference>
     <x:Reference>__ReferenceID6</x:Reference>
     <x:Reference>__ReferenceID7</x:Reference>
@@ -2160,7 +2160,7 @@
     <x:Reference>__ReferenceID9</x:Reference>
     <x:Reference>__ReferenceID10</x:Reference>
     <x:Reference>__ReferenceID1</x:Reference>
+    <x:Reference>__ReferenceID2</x:Reference>
     <x:Reference>__ReferenceID11</x:Reference>
-    <x:Reference>__ReferenceID12</x:Reference>
   </Flowchart>
 </Activity>
