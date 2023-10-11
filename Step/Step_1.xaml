@@ -1993,7 +1993,7 @@
                       <av:PointCollection x:Key="ConnectorLocation">859,503.5 859,533.5 610,533.5 610,629.5</av:PointCollection>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <Sequence DisplayName="검색조건 설정CHROME" sap:VirtualizedContainerService.HintSize="644,3748" sap2010:WorkflowViewState.IdRef="Sequence_265">
+                  <Sequence DisplayName="검색조건 설정CHROME" sap:VirtualizedContainerService.HintSize="644,3616" sap2010:WorkflowViewState.IdRef="Sequence_265">
                     <Sequence.Variables>
                       <Variable x:TypeArguments="scg:IEnumerable(ui:UiElement)" Name="el_table" />
                       <Variable x:TypeArguments="ui:UiElement" Name="popupClose" />
@@ -2007,7 +2007,6 @@
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="582,92" sap2010:WorkflowViewState.IdRef="LogMessage_31" Level="Info" Message="[DateTime.Now.AddDays(-2).ToString(&quot;yyyyMMdd&quot;)]" />
                     <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser 'chrome.exe 쇼핑몰옵션송신'" sap:VirtualizedContainerService.HintSize="582,3189" sap2010:WorkflowViewState.IdRef="BrowserScope_62" InformativeScreenshot="99b97d0f7e5cfcd49afbc074d2e2ca0d" Selector="&lt;html app='chrome.exe' title='* - 사방넷 리테일즈' /&gt;">
                       <ui:BrowserScope.Body>
                         <ActivityAction x:TypeArguments="x:Object">
