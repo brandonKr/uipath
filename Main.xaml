@@ -608,7 +608,7 @@
                                                 <OutArgument x:TypeArguments="x:String">[s_mailBody]</OutArgument>
                                               </ui:AssignOperation.To>
                                               <ui:AssignOperation.Value>
-                                                <InArgument x:TypeArguments="x:String">[Config.Item("attr30").ToString().Replace("$startTime", g_s_startTime).Replace("$endTime",DateTime.Now.ToString("HH:mm:ss")).Replace("$spenTime",(Convert.ToDateTime(Datetime.Now.ToString("HH:mm:ss"))-Convert.ToDateTime(g_s_startTime)).ToString()).Replace("$manager", Config.Item("attr05").ToString).Replace("$Maile", Config.Item("attr06").ToString).Replace("$Phone", Config.Item("attr07").ToString).Replace("$error",ErrorMsg)]</InArgument>
+                                                <InArgument x:TypeArguments="x:String">[Config.Item("attr30").ToString().Replace("$startTime", g_s_startTime).Replace("$endTime",DateTime.Now.ToString("HH:mm:ss")).Replace("$spenTime",(Convert.ToDateTime(Datetime.Now.ToString("HH:mm:ss"))-Convert.ToDateTime(g_s_startTime)).ToString()).Replace("$manager",config("attr24").ToString).Replace("$Maile",config("attr25").ToString).Replace("$Phone",config("attr26").ToString).Replace("$error",ErrorMsg)]</InArgument>
                                               </ui:AssignOperation.Value>
                                             </ui:AssignOperation>
                                           </scg:List>
@@ -666,7 +666,7 @@
                                   <ActivityAction.Argument>
                                     <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                                   </ActivityAction.Argument>
-                                  <Sequence sap:VirtualizedContainerService.HintSize="494,385" sap2010:WorkflowViewState.IdRef="Sequence_39">
+                                  <Sequence sap:VirtualizedContainerService.HintSize="493,375" sap2010:WorkflowViewState.IdRef="Sequence_39">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
